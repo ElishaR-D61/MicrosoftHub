@@ -1,0 +1,5 @@
+EmailEvents
+| where EmailDirection == "Inbound"
+| summarize Count = count()
+| extend Details = "Total Inbound Emails"
+| project Details, Count
