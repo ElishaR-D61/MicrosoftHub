@@ -1,0 +1,4 @@
+UrlClickEvents 
+| where ActionType == "ClickAllowed" or IsClickedThrough !="0"
+| where isnotempty(ThreatTypes) 
+| summarize count() by Workload
