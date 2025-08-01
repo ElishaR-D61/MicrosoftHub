@@ -1,0 +1,7 @@
+CloudAppEvents
+| extend Record= (parse_json(RawEventData)).RecordType
+| extend SubmissionState = (parse_json(RawEventData)).SubmissionState
+| where Record == 29 | where ActionType == "UserSubmission"
+| summarize Count= count()
+| extend Details = "Total Emails Reported by Users"
+| project Details, Count
