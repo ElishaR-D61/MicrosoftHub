@@ -1,0 +1,6 @@
+EmailEvents 
+| where ThreatTypes has "Malware" 
+| summarize count() by SenderIPv4
+| extend GeoInfo = geo_info_from_ip_address(SenderIPv4)
+| extend Latitude = tostring(GeoInfo.latitude), Longitude = tostring(GeoInfo.longitude)
+| project SenderIPv4, Latitude, Longitude, count_
