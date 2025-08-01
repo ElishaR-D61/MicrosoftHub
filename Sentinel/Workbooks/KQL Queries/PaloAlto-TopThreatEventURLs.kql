@@ -1,0 +1,5 @@
+PaloAltoCDLEvent
+| where EventResourceId contains "THREAT"
+| where isnotempty(Url)
+| summarize ThreatEventUrl = count() by Url
+| top 10 by ThreatEventUrl desc 
