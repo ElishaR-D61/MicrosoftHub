@@ -1,0 +1,5 @@
+EmailEvents
+| where EmailDirection == "Outbound"
+| summarize Count = count()
+| extend Details = "Total Outbound Emails"
+| project Details, Count
