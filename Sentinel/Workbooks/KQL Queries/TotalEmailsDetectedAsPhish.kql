@@ -1,0 +1,5 @@
+EmailEvents
+| where ThreatTypes has ('Phish')
+| summarize Count= count()
+| extend Details = "Emails Detected as Phish"
+| project Details, Count
