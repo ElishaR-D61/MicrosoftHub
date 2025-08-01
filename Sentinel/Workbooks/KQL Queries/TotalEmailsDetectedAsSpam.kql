@@ -1,0 +1,5 @@
+EmailEvents
+| where ThreatTypes has ('Spam')
+| summarize Count= count()
+| extend Details = "Emails Detected as Spam"
+| project Details, Count
