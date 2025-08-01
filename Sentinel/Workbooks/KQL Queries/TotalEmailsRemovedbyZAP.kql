@@ -1,0 +1,6 @@
+EmailPostDeliveryEvents
+| where ActionResult == "Success"
+| where ActionType == "Phish ZAP" or ActionType == "Malware ZAP"
+| summarize Count= count()
+| extend Details = "Total Emails Removed by ZAP"
+| project Details, Count
