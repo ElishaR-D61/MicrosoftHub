@@ -1,0 +1,5 @@
+EmailEvents
+| where EmailDirection == "Intra-org"
+| summarize Count = count()
+| extend Details = "Total Intra-org Emails"
+| project Details, Count
