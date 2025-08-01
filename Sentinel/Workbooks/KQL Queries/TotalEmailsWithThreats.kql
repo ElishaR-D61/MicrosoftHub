@@ -1,0 +1,5 @@
+EmailEvents
+| where isnotempty(ThreatTypes) 
+| summarize Count = count()
+| extend Details = "Total Emails with Threats"
+| project Details, Count
